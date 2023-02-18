@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <Compile Include="MonoBehaviour.cs" />
     <Compile Include="Patch.cs" />
     <Compile Include="SeaMothHoverModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

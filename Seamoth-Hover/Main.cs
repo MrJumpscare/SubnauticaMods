@@ -12,7 +12,7 @@ namespace SeamothHover
     {   
         private const string myGUID = "com.mrjumpscare.seamothhovermod";
         private const string pluginName = "SeaMoth Hover Mod";
-        private const string versionString = "1.0.0";
+        private const string versionString = "2.0.0";
 
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
         private static string ModPath = Path.GetDirectoryName(myAssembly.Location);

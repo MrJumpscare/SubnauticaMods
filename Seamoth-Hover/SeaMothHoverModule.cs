@@ -17,7 +17,7 @@ namespace SeamothHover
             };
         }
         public override EquipmentType EquipmentType => EquipmentType.SeamothModule;
-        public override TechType RequiredForUnlock => TechType.RocketBase;
+        public override TechType RequiredForUnlock => TechType.PrecursorKey_Orange;
         public override TechGroup GroupForPDA => TechGroup.VehicleUpgrades;
         public override TechCategory CategoryForPDA => TechCategory.VehicleUpgrades;
         public override CraftTree.Type FabricatorType => CraftTree.Type.SeamothUpgrades;
@@ -37,10 +37,10 @@ namespace SeamothHover
                 craftAmount = 1,
                 Ingredients =
                 {
-                    new Ingredient(TechType.PipeSurfaceFloater, 1),
-                    new Ingredient(TechType.ComputerChip, 1),
-                    new Ingredient(TechType.Titanium, 2),
-                    new Ingredient(TechType.Aerogel, 1)
+                    new Ingredient(TechType.PrecursorIonCrystal, 1),
+                    new Ingredient(TechType.ComputerChip, 2),
+                    new Ingredient(TechType.Benzene, 1),
+                    new Ingredient(TechType.Aerogel, 2)
                 },
             };
         }
