@@ -4,7 +4,6 @@ C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\0Harmo
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\Assembly-CSharp-firstpass_publicized.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\Assembly-CSharp_publicized.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\BepInEx.dll
-C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\SMLHelper.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\Unity.TextMeshPro.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\UnityEngine.CoreModule.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\UnityEngine.dll
@@ -66,7 +65,6 @@ C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\UnityE
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\UnityEngine.InputModule.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\0Harmony.xml
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\BepInEx.xml
-C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\SMLHelper.xml
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\MonoMod.Utils.xml
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\MonoMod.RuntimeDetour.xml
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\obj\Debug\FireExtinguisher+.csproj.AssemblyReference.cache
@@ -74,3 +72,5 @@ C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\obj\Debug\FireEx
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\obj\Debug\FireExtinguisher+.csproj.CopyComplete
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\obj\Debug\FireExtinguisher+.dll
 C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\obj\Debug\FireExtinguisher+.pdb
+C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\Nautilus.dll
+C:\Users\chris\source\repos\FireExtinguisher+\FireExtinguisher+\bin\Debug\Nautilus.xml

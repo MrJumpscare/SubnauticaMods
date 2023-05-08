@@ -44,8 +44,8 @@
     <Reference Include="BepInEx">
       <HintPath>B:\SteamLibrary\steamapps\common\Subnautica\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="SMLHelper">
-      <HintPath>B:\SteamLibrary\steamapps\common\Subnautica\Mods\Modding Helper\SMLHelper.dll</HintPath>
+    <Reference Include="Nautilus">
+      <HintPath>B:\SteamLibrary\steamapps\common\Subnautica\Nautilusmods\Nautilus\Nautilus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
