@@ -1,0 +1,9 @@
+is_global = true
+build_property.RootNamespace = Flying_Cyclops
+build_property.ProjectDir = C:\Users\chris\source\repos\Flying Cyclops\
+build_property.PolySharpUsePublicAccessibilityForGeneratedTypes = 
+build_property.PolySharpIncludeRuntimeSupportedAttributes = 
+build_property.PolySharpUseInteropServices2NamespaceForUnmanagedCallersOnlyAttribute = 
+build_property.PolySharpExcludeGeneratedTypes = 
+build_property.PolySharpIncludeGeneratedTypes = 
+build_property.PolySharpExcludeTypeForwardedToDeclarations = 
