@@ -230,7 +230,7 @@
           "lib/net472/UnityEngine.UI.dll": {}
         }
       },
-      "Subnautica.Nautilus/1.0.0-pre.11": {
+      "Subnautica.Nautilus/1.0.0-pre.12": {
         "type": "package",
         "dependencies": {
           "BepInEx.AssemblyPublicizer.MSBuild": "0.4.0",
@@ -980,17 +980,17 @@
         "subnautica.gamelibs.nuspec"
       ]
     },
-    "Subnautica.Nautilus/1.0.0-pre.11": {
-      "sha512": "97eRbzQjgddTld9GzWPQ4waUujGj/Pm9MEWFiTTvNw7Gbq3yyp7n11fBxAmsiH6Qkk2d57hyZ+9X/OeCJvPicA==",
+    "Subnautica.Nautilus/1.0.0-pre.12": {
+      "sha512": "/HmbKNuXJ5Ry1ZAltrce5REvpeuSfF47sb6R0wG8nxC71FtVUUbgICeQtSXxZ14x6u2jp61ZBg5sGcEr68yVXA==",
       "type": "package",
-      "path": "subnautica.nautilus/1.0.0-pre.11",
+      "path": "subnautica.nautilus/1.0.0-pre.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net472/Nautilus.dll",
         "lib/net472/Nautilus.xml",
         "logo.png",
-        "subnautica.nautilus.1.0.0-pre.11.nupkg.sha512",
+        "subnautica.nautilus.1.0.0-pre.12.nupkg.sha512",
         "subnautica.nautilus.nuspec"
       ]
     },

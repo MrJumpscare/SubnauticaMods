@@ -3,6 +3,7 @@ using Nautilus.Assets.Gadgets;
 using Nautilus.Assets.PrefabTemplates;
 using Nautilus.Crafting;
 using Nautilus.Extensions;
+using Nautilus.Handlers;
 using Nautilus.Utility;
 using UnityEngine;
 using Ingredient = CraftData.Ingredient;
@@ -14,7 +15,7 @@ namespace Flying_Cyclops.Items.Equipment
         public static PrefabInfo Info { get; private set; } = PrefabInfo
             .WithTechType("CyclopsFlyingModule", "Cyclops Flying Module", "Module that makes the cyclops fly.")
             .WithIcon(ImageUtils.LoadSpriteFromFile(Plugin.AssetsFolder + "/cycflysprite.png"));
-
+        
         public static void Register()
         {
             var customPrefab = new CustomPrefab(Info);
@@ -30,6 +31,7 @@ namespace Flying_Cyclops.Items.Equipment
                 new Ingredient(TechType.ComputerChip, 3)
                 }
             }).WithFabricatorType(CraftTree.Type.CyclopsFabricator);
+            customPrefab.SetPdaGroupCategory(TechGroup.Cyclops, TechCategory.CyclopsUpgrades);
             customPrefab.SetEquipment(EquipmentType.CyclopsModule);
             customPrefab.Register();
         }
