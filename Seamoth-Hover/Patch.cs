@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Data.Odbc;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using HarmonyLib;
-using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using HarmonyLib;
 
 namespace SeamothHover
 {

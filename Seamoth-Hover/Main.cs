@@ -3,7 +3,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System.Reflection;
 using System.IO;
-using SMLHelper.V2.Handlers;
+using Nautilus.Handlers;
 
 namespace SeamothHover
 {
@@ -12,7 +12,7 @@ namespace SeamothHover
     {   
         private const string myGUID = "com.mrjumpscare.seamothhovermod";
         private const string pluginName = "SeaMoth Hover Mod";
-        private const string versionString = "2.0.0";
+        private const string versionString = "2.1.0";
 
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
         private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
@@ -23,15 +23,12 @@ namespace SeamothHover
         public static ManualLogSource logger;
         internal static SMLConfig config { get; } = OptionsPanelHandler.RegisterModOptions<SMLConfig>();
 
-
         private void Awake()
         {
             harmony.PatchAll();
             Logger.LogInfo("SEAMOTH HOVER PATCHED // ENABLING...");
             logger = Logger;
-            SeaMothHoverModule seaMothHoverModule = new SeaMothHoverModule();
-            seaMothHoverModule.Patch();
-
+            SeaMothHoverModule.Register();
         }
     }
 }
