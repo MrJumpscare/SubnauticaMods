@@ -9,7 +9,9 @@ namespace SeamothHover
 {
     [BepInPlugin(myGUID, pluginName, versionString)]
     public class Main : BaseUnityPlugin
-    {   
+    {
+        public static GameInput.Button HoverButton;
+
         private const string myGUID = "com.mrjumpscare.seamothhovermod";
         private const string pluginName = "SeaMoth Hover Mod";
         private const string versionString = "2.1.0";
@@ -28,6 +30,9 @@ namespace SeamothHover
             harmony.PatchAll();
             Logger.LogInfo("SEAMOTH HOVER PATCHED // ENABLING...");
             logger = Logger;
+            HoverButton = EnumHandler.AddEntry<GameInput.Button>("Hover Button")
+            .CreateInput("Hover Toggle Keybind")
+            .WithKeyboardBinding("<Keyboard>/p");
             SeaMothHoverModule.Register();
         }
     }

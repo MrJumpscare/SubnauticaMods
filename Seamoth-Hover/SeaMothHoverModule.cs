@@ -3,7 +3,6 @@ using Nautilus.Crafting;
 using Nautilus.Utility;
 using Nautilus.Assets.PrefabTemplates;
 using Nautilus.Assets.Gadgets;
-using static CraftData;
 
 namespace SeamothHover
 {
@@ -15,9 +14,9 @@ namespace SeamothHover
         public static void Register()
         {
             var customPrefab = new CustomPrefab(Info);
-
-            var SeaHovObj = new CloneTemplate(Info, TechType.SeamothElectricalDefense);
-            customPrefab.SetGameObject(SeaHovObj);
+            var clone = new CloneTemplate(Info, TechType.SeamothReinforcementModule);
+            customPrefab.SetGameObject(clone);
+            customPrefab.SetVehicleUpgradeModule(EquipmentType.SeamothModule, QuickSlotType.Passive);
             customPrefab.SetRecipe(new RecipeData()
             {
                 craftAmount = 1,
@@ -31,8 +30,7 @@ namespace SeamothHover
             })
                 .WithFabricatorType(CraftTree.Type.SeamothUpgrades)
                 .WithStepsToFabricatorTab("SeamothModules");
-            customPrefab.SetEquipment(EquipmentType.SeamothModule)
-                .WithQuickSlotType(QuickSlotType.Passive);
+            customPrefab.SetPdaGroupCategory(TechGroup.VehicleUpgrades, TechCategory.VehicleUpgrades);
             customPrefab.SetUnlock(TechType.PrecursorKey_Orange);
             customPrefab.Register();
         }

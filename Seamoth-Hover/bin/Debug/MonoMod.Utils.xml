@@ -14,6 +14,48 @@
                 Please see https://github.com/manuelroemer/IsExternalInit for more information.
             </remarks>
         </member>
+        <member name="T:MonoMod.Utils.ArchitectureKind">
+            <summary>
+            A CPU architecture.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.Unknown">
+            <summary>
+            An unknown architecture.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.Bits64">
+            <summary>
+            A flag which is set in architectures which are 64-bit.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.x86">
+            <summary>
+            The Intel x86 CPU architecture.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.x86_64">
+            <summary>
+            The <c>x86_64</c> 64-bit extensions to <see cref="F:MonoMod.Utils.ArchitectureKind.x86"/>. Also known as <see cref="F:MonoMod.Utils.ArchitectureKind.AMD64"/>.
+            </summary>
+            <seealso cref="F:MonoMod.Utils.ArchitectureKind.AMD64"/>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.AMD64">
+            <summary>
+            The AMD 64-bit extension to <see cref="F:MonoMod.Utils.ArchitectureKind.x86"/>. Also known as <see cref="F:MonoMod.Utils.ArchitectureKind.x86_64"/>.
+            </summary>
+            <seealso cref="F:MonoMod.Utils.ArchitectureKind.x86_64"/>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.Arm">
+            <summary>
+            The ARM instruction set.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.ArchitectureKind.Arm64">
+            <summary>
+            The 64-bit ARM instruction set.
+            </summary>
+        </member>
         <member name="T:MonoMod.Utils.Cil.CecilILGenerator">
             <summary>
             A variant of ILGenerator which uses Mono.Cecil under the hood.
@@ -54,6 +96,22 @@
             Get the (open) generic proxy type implementing ILGenerator.
             </summary>
             <returns>The "real" ILGenerator type, non-generic.</returns>
+        </member>
+        <member name="T:MonoMod.Utils.CorelibKind">
+            <summary>
+            The kind of corelib loaded by the current runtime.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.CorelibKind.Framework">
+            <summary>
+            The .NET Framework corelib. The corelib's name is <c>mscorlib</c>, and it is used on standard Mono and .NET Framework.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.CorelibKind.Core">
+            <summary>
+            The .NET Core corelib. The corelib's name is <c>System.Private.CoreLib</c>, and it is used on .NET Mono (from 
+            <see href="https://github.com/dotnet/runtime" />) and CoreCLR (.NET Core and .NET 5+) runtimes.
+            </summary>
         </member>
         <member name="T:MonoMod.Utils.DMDGenerator`1">
             <summary>
@@ -715,6 +773,192 @@
             This overload may not work on some older Mono implementations, which do not have good function pointer support.
             </remarks>
         </member>
+        <member name="T:MonoMod.Utils.OSKind">
+            <summary>
+            An operating system kind.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.Unknown">
+            <summary>
+            An unknown operating system.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.Posix">
+            <summary>
+            A POSIX-compatible operating system.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.Linux">
+            <summary>
+            A Linux kernel. 
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.Android">
+            <summary>
+            An Android operating system.
+            </summary>
+            <remarks>
+            <see cref="M:MonoMod.Utils.OSKindExtensions.GetKernel(MonoMod.Utils.OSKind)"/> will return <see cref="F:MonoMod.Utils.OSKind.Linux"/>, and
+            <see cref="M:MonoMod.Utils.OSKindExtensions.GetSubtypeId(MonoMod.Utils.OSKind)"/> will return <c>1</c>.
+            </remarks>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.OSX">
+            <summary>
+            A MacOSX kernel.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.IOS">
+            <summary>
+            An iOS operating system.
+            </summary>
+            <remarks>
+            <see cref="M:MonoMod.Utils.OSKindExtensions.GetKernel(MonoMod.Utils.OSKind)"/> will return <see cref="F:MonoMod.Utils.OSKind.IOS"/>, and
+            <see cref="M:MonoMod.Utils.OSKindExtensions.GetSubtypeId(MonoMod.Utils.OSKind)"/> will return <c>1</c>.
+            </remarks>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.BSD">
+            <summary>
+            A BSD kernel.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.Windows">
+            <summary>
+            A Windows kernel.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.OSKind.Wine">
+            <summary>
+            A Windows operating system, running on the Wine emulation layer.
+            </summary>
+            <remarks>
+            <see cref="M:MonoMod.Utils.OSKindExtensions.GetKernel(MonoMod.Utils.OSKind)"/> will return <see cref="F:MonoMod.Utils.OSKind.Windows"/>, and
+            <see cref="M:MonoMod.Utils.OSKindExtensions.GetSubtypeId(MonoMod.Utils.OSKind)"/> will return <c>1</c>.
+            </remarks>
+        </member>
+        <member name="T:MonoMod.Utils.OSKindExtensions">
+            <summary>
+            A collection of extensions for the <see cref="T:MonoMod.Utils.OSKind"/> enum.
+            </summary>
+        </member>
+        <member name="M:MonoMod.Utils.OSKindExtensions.Is(MonoMod.Utils.OSKind,MonoMod.Utils.OSKind)">
+            <summary>
+            Tests whether <paramref name="operatingSystem"/> is an operating system with the specified <paramref name="test"/> flag.
+            </summary>
+            <example>
+            <list type="bullet">
+            <item><see cref="F:MonoMod.Utils.OSKind.Wine"/> is <see cref="F:MonoMod.Utils.OSKind.Windows"/>.</item>
+            <item><see cref="F:MonoMod.Utils.OSKind.Linux"/> is <see cref="F:MonoMod.Utils.OSKind.Posix"/>.</item>
+            <item><see cref="F:MonoMod.Utils.OSKind.IOS"/> is <see cref="F:MonoMod.Utils.OSKind.OSX"/> is <see cref="F:MonoMod.Utils.OSKind.Posix"/>.</item>
+            </list>
+            </example>
+            <param name="operatingSystem">The <see cref="T:MonoMod.Utils.OSKind"/> to test.</param>
+            <param name="test">The test value.</param>
+            <returns><see langword="true"/> if <paramref name="operatingSystem"/> matches <paramref name="test"/>; <see langword="false"/> otherwise.</returns>
+        </member>
+        <member name="M:MonoMod.Utils.OSKindExtensions.GetKernel(MonoMod.Utils.OSKind)">
+            <summary>
+            Gets the kernel <see cref="T:MonoMod.Utils.OSKind"/> for <paramref name="operatingSystem"/>.
+            </summary>
+            <remarks>
+            <para>This method returns <paramref name="operatingSystem"/> except when noted in the remarks of the <see cref="T:MonoMod.Utils.OSKind"/> members.</para>
+            <para>This is usually what you want to use, if you don't care about the differences between the more precise subtypes.</para>
+            </remarks>
+            <param name="operatingSystem">The <see cref="T:MonoMod.Utils.OSKind"/> to get the kernel of.</param>
+            <returns>The <see cref="T:MonoMod.Utils.OSKind"/> representing <paramref name="operatingSystem"/>'s kernel.</returns>
+        </member>
+        <member name="M:MonoMod.Utils.OSKindExtensions.GetSubtypeId(MonoMod.Utils.OSKind)">
+            <summary>
+            Gets the subtype ID for <paramref name="operatingSystem"/>.
+            </summary>
+            <remarks>
+            The subtype ID means basically nothing on its own. Its value is <c>0</c> unless otherwise noted in the remarks of
+            <see cref="T:MonoMod.Utils.OSKind"/>'s members.
+            </remarks>
+            <param name="operatingSystem">The <see cref="T:MonoMod.Utils.OSKind"/> to get the subtype ID of.</param>
+            <returns>The subtype ID of <paramref name="operatingSystem"/>.</returns>
+        </member>
+        <member name="T:MonoMod.Utils.PlatformDetection">
+            <summary>
+            A utility type which provides information about the executing runtime, including:
+            <list type="bullet">
+            <item>Operating system</item>
+            <item>Architecture</item>
+            <item>Runtime
+                <list type="bullet">
+                <item>Kind (Framework, CoreCLR, Mono)</item>
+                <item>Version</item>
+                </list>
+            </item>
+            <item>Corelib</item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:MonoMod.Utils.PlatformDetection.OS">
+            <summary>
+            Gets the <see cref="T:MonoMod.Utils.OSKind"/> identifying the operating system that is running this application.
+            </summary>
+        </member>
+        <member name="P:MonoMod.Utils.PlatformDetection.Architecture">
+            <summary>
+            Gets the <see cref="T:MonoMod.Utils.ArchitectureKind"/> identifying the architecture of the current process.
+            </summary>
+            <remarks>
+            Note that the architecture running here is not necessarily the architecture of the operating system.
+            In many cases, an OS can run code that is not its own native architecture, for instance: 
+            <list type="bullet">
+            <item>Windows running on <see cref="F:MonoMod.Utils.ArchitectureKind.x86_64"/> can natively run
+              <see cref="F:MonoMod.Utils.ArchitectureKind.x86"/> code via its WOW64 subsystem.</item>
+            <item>Linux running on <see cref="F:MonoMod.Utils.ArchitectureKind.x86_64"/> can natively run <see cref="F:MonoMod.Utils.ArchitectureKind.x86"/>
+              code in a similar manner to Windows.</item>
+            <item>MacOS running on <see cref="F:MonoMod.Utils.ArchitectureKind.Arm64"/> can run <see cref="F:MonoMod.Utils.ArchitectureKind.x86_64"/> code
+              via its Rosetta emulation layer.</item>
+            </list>
+            Generally, the most useful value is the process's architecture, so that's what this returns.
+            </remarks>
+        </member>
+        <member name="P:MonoMod.Utils.PlatformDetection.Runtime">
+            <summary>
+            Gets the current runtime's implementation.
+            </summary>
+        </member>
+        <member name="P:MonoMod.Utils.PlatformDetection.Corelib">
+            <summary>
+            Gets the current runtime's corelib.
+            </summary>
+        </member>
+        <member name="P:MonoMod.Utils.PlatformDetection.RuntimeVersion">
+            <summary>
+            Gets the current runtime's version.
+            </summary>
+            <remarks>
+            On .NET Framework, this version will semi-frequently be nonsense, and the same is true on .NET Core 2.1 and earlier.
+            </remarks>
+        </member>
+        <member name="T:MonoMod.Utils.RuntimeKind">
+            <summary>
+            A runtime implementation kind.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.RuntimeKind.Unknown">
+            <summary>
+            Some unknown runtime implementation.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.RuntimeKind.Framework">
+            <summary>
+            The Windows .NET Framework CLR implementation.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.RuntimeKind.CoreCLR">
+            <summary>
+            The CoreCLR implementation, used by .NET Core and .NET 5+. derived from the Silverlight runtime.
+            </summary>
+        </member>
+        <member name="F:MonoMod.Utils.RuntimeKind.Mono">
+            <summary>
+            The Mono CLR implementation.
+            </summary>
+        </member>
         <member name="T:MonoMod.Cil.ILContext">
             <summary>
             An IL manipulation "context" with various helpers and direct access to the MethodBody.
@@ -829,6 +1073,27 @@
             <typeparam name="T">The type of the object. The combination of typeparam and id provides the unique static reference.</typeparam>
             <param name="value">The object to store.</param>
             <returns>The id to use in combination with the typeparam for object retrieval.</returns>
+        </member>
+        <member name="M:MonoMod.Cil.ILContext.CreateLocal``1">
+            <summary>
+            Creates a new local variable of type <typeparamref name="T"/> and returns its definition.
+            </summary>
+            <returns>The <see cref="T:Mono.Cecil.Cil.VariableDefinition"/> of the local.</returns>
+            <typeparam name="T">The type of the local variable to create.</typeparam>
+        </member>
+        <member name="M:MonoMod.Cil.ILContext.CreateLocal(System.Type)">
+            <summary>
+            Creates a new local variable of <paramref name="type"/> and returns its definition.
+            </summary>
+            <param name="type">The type of the local variable to create.</param>
+            <returns>The <see cref="T:Mono.Cecil.Cil.VariableDefinition"/> of the local.</returns>
+        </member>
+        <member name="M:MonoMod.Cil.ILContext.CreateLocal(Mono.Cecil.TypeReference)">
+            <summary>
+            Creates a new local variable with <paramref name="typeRef"/> and returns its definition.
+            </summary>
+            <param name="typeRef">The <see cref="T:Mono.Cecil.TypeReference"/> of the type for the local variable to create.</param>
+            <returns>The <see cref="T:Mono.Cecil.Cil.VariableDefinition"/> of the local.</returns>
         </member>
         <member name="M:MonoMod.Cil.ILContext.ToString">
             <summary>
@@ -1113,6 +1378,27 @@
             Create a new label for use with <see cref="M:MonoMod.Cil.ILCursor.MarkLabel(MonoMod.Cil.ILLabel)"/>
             </summary>
             <returns>A new label with no target</returns>
+        </member>
+        <member name="M:MonoMod.Cil.ILCursor.CreateLocal``1">
+            <summary>
+            Create a new local for use with <see cref="M:MonoMod.Cil.ILContext.CreateLocal``1"/>
+            </summary>
+            <typeparam name="T">The type of the local variable to create.</typeparam>
+            <returns>The <see cref="T:Mono.Cecil.Cil.VariableDefinition"/> of the local.</returns>
+        </member>
+        <member name="M:MonoMod.Cil.ILCursor.CreateLocal(System.Type)">
+            <summary>
+            Create a new local for use with <see cref="M:MonoMod.Cil.ILContext.CreateLocal(System.Type)"/>
+            </summary>
+            <param name="type">The type of the local variable to create.</param>
+            <returns>The <see cref="T:Mono.Cecil.Cil.VariableDefinition"/> of the local.</returns>
+        </member>
+        <member name="M:MonoMod.Cil.ILCursor.CreateLocal(Mono.Cecil.TypeReference)">
+            <summary>
+            Create a new local for use with <see cref="M:MonoMod.Cil.ILContext.CreateLocal(Mono.Cecil.TypeReference)"/>
+            </summary>
+            <param name="typeRef">The <see cref="T:Mono.Cecil.TypeReference"/> of the local variable to create.</param>
+            <returns>The <see cref="T:Mono.Cecil.Cil.VariableDefinition"/> of the local.</returns>
         </member>
         <member name="M:MonoMod.Cil.ILCursor.Remove">
             <summary>
@@ -4735,6 +5021,17 @@
             <para>This path must still meet the above criteria, and must be the full path of the binary. If it doesn't match
             the above criteria, a warning will be printed and this will be ignored. If the specified path is not loaded, this
             is also ignored, and the default behavior is used.</para>
+            </remarks>
+        </member>
+        <member name="F:MonoMod.Switches.HelperDropPath">
+            <summary>
+            String. Full path to the directory to drop helper binaries into instead of <c>/tmp</c> (on Unix systems).
+            </summary>
+            <remarks>
+            <para>On Unix systems, MonoMod.Core needs to load (from a file on disk!) a native helper to be able to handle
+            exceptions passing through its JIT hook (and on MacOS M-series chips, to be able to patch JIT-executable code).
+            By default, this helper is dropped into <c>/tmp</c>, however some systems prevent loading executables from this
+            location. Use this switch to override the directory those files are dropped in.</para>
             </remarks>
         </member>
         <member name="F:MonoMod.Switches.LogRecordHoles">

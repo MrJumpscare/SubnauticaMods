@@ -4,17 +4,14 @@ namespace SeamothHover
 {
     public class HoverMonoBehaviour : MonoBehaviour
     {
-        public SeaMoth seaMoth;
-        public float energy;
-        public bool passedLimit;
-        public bool HoverEnabled;
-        public bool shouldFly;
-        public bool test;
+        private SeaMoth seaMoth;
+        private bool passedLimit;
+        private bool HoverEnabled;
+        private bool shouldFly;
 
         public void Start()
         {
             seaMoth = gameObject.GetComponentInChildren<SeaMoth>();
-            energy = 0.066667f;
             passedLimit = true;
             HoverEnabled = false;
         }
@@ -22,77 +19,79 @@ namespace SeamothHover
         {
             int count = seaMoth.modules.GetCount(SeaMothHoverModule.Info.TechType);
             float height = seaMoth.transform.position.y;
-            if (seaMoth.playerFullyEntered || Main.config.keepFlying)
-            {
-                shouldFly = true;
-            }
-            else shouldFly = false;
-            if (count > 0 && (HoverEnabled || (Main.config.Mode == SMLConfig.FlyMode.Flight && height >= 0)))
+            shouldFly = seaMoth.playerFullyEntered || Main.config.keepFlying;
+
+            if (count <= 0) return;
+            if (HoverEnabled || (Main.config.Mode == SMLConfig.FlyMode.Flight && height >= 0))
             {
                 seaMoth.enginePowerConsumption = 0.066667f * Main.config.powerconsumption;
             }
-            if (Main.config.Mode == SMLConfig.FlyMode.Hover && count > 0)
+
+            if (Main.config.Mode == SMLConfig.FlyMode.Hover)
             {
-                Hover();
+                HoverCheck(height);
             }
             else
             {
-                Flight();
+                ToggleFlight(count);
             }
-            void Hover()
+
+        }
+
+        private void HoverCheck(float height)
+        {
+            void Debug()
             {
-                void Debug()
+                if (passedLimit == true)
                 {
-                    if (passedLimit == true)
-                    {
-                        ErrorMessage.AddWarning("Max Hover Height Reached");
-                        ErrorMessage.AddWarning("Thrusters losing power!");
-                        passedLimit = false;
-                    }
-                    return;
+                    ErrorMessage.AddWarning("Max Hover Height Reached");
+                    ErrorMessage.AddWarning("Thrusters losing power!");
+                    passedLimit = false;
                 }
-                if(HoverEnabled)
-                {
-                    if (height >= Main.config.hoverheight)
-                    {
-                        Debug();
-                        seaMoth.worldForces.aboveWaterGravity = 9.81f + height - Main.config.hoverheight;
-                        passedLimit = false;
-                    }
-                    if (height < Main.config.hoverheight - 0.001f)
-                    {
-                        seaMoth.worldForces.aboveWaterGravity = 0;
-                        passedLimit = true;
-                    }
-                    if(!shouldFly)
-                    {
-                        HoverEnabled = false;
-                        Hovering();
-                    }
-                }
-                if (Input.GetKeyDown(Main.config.hovertoggle))
-                {
-                    HoverEnabled = !HoverEnabled;
-                    Hovering();
-                }
+                return;
             }
-            void Flight()
+            if (HoverEnabled)
             {
-                if (count > 0 && shouldFly)
+                if (height >= Main.config.hoverheight)
                 {
-                    seaMoth.worldForces.aboveWaterDrag = seaMoth.worldForces.underwaterDrag;
-                    seaMoth.moveOnLand = true;
+                    Debug();
+                    seaMoth.worldForces.aboveWaterGravity = 9.81f + height - Main.config.hoverheight;
+                    passedLimit = false;
+                }
+                if (height < Main.config.hoverheight - 0.001f)
+                {
                     seaMoth.worldForces.aboveWaterGravity = 0;
+                    passedLimit = true;
                 }
-                else
-                {
-                    seaMoth.worldForces.aboveWaterGravity = 9.81f;
-                    seaMoth.worldForces.aboveWaterDrag = 0f;
-                    seaMoth.moveOnLand = false;
+                if (!shouldFly) { 
+                    HoverEnabled = false;
+                    ToggleHover();
                 }
+            }
+            if (GameInput.GetButtonDown(Main.HoverButton))
+            {
+                HoverEnabled = !HoverEnabled;
+                ToggleHover();
             }
         }
-        public void Hovering()
+
+        private void ToggleFlight(int count)
+        {
+            if (shouldFly)
+            {
+                seaMoth.worldForces.aboveWaterDrag = seaMoth.worldForces.underwaterDrag;
+                seaMoth.moveOnLand = true;
+                seaMoth.worldForces.aboveWaterGravity = 0;
+            }
+            else
+            {
+                seaMoth.worldForces.aboveWaterGravity = 9.81f;
+                seaMoth.worldForces.aboveWaterDrag = 0f;
+                seaMoth.moveOnLand = false;
+            }
+        }
+
+        private void ToggleHover()
         {
             if (HoverEnabled)
             {
@@ -114,4 +113,3 @@ namespace SeamothHover
         }
     }
 }
-
